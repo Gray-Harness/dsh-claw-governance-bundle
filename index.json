@@ -1,0 +1,273 @@
+{
+ "format": 1,
+ "title": {
+  "en": "Gray Harness Claw Governance",
+  "zh": "Gray Harness Claw 治理套件"
+ },
+ "description": {
+  "en": "Claw agent governance suite for DeepSeek Harness: registry, identity, policy, permission gate, delegation and memory. Vendored from xingyingyuzhui/dsh-claw-suite at v0.3.0-rc.2 (MIT).",
+  "zh": "DSH Claw Agent 治理套件：登记、人设、策略、权限闸、委派与记忆。源自 xingyingyuzhui/dsh-claw-suite v0.3.0-rc.2（MIT）。"
+ },
+ "metadata": {
+  "categories": {
+   "dev": {
+    "title": {
+     "en": "Development & Runtime",
+     "zh": "开发与运行时"
+    }
+   },
+   "identity": {
+    "title": {
+     "en": "Identity & Persona",
+     "zh": "身份与人设"
+    }
+   },
+   "security": {
+    "title": {
+     "en": "Security & Permissions",
+     "zh": "安全与权限"
+    }
+   },
+   "memory": {
+    "title": {
+     "en": "Memory",
+     "zh": "记忆"
+    }
+   }
+  }
+ },
+ "plugins": [
+  {
+   "name": "dsh-claw-observability",
+   "title": "dsh-observability",
+   "description": "Shared structured diagnostics and a Settings page for the DSH Claw plugin suite. 治理插件共用诊断日志与运行诊断页。",
+   "author": "xingyingyuzhui",
+   "homepage": "https://github.com/xingyingyuzhui/dsh-observability#readme",
+   "repository": {
+    "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+    "directory": "plugins/dsh-observability"
+   },
+   "metadata": {
+    "category": "dev"
+   },
+   "versions": [
+    {
+     "version": "0.3.0-rc.2",
+     "publishTimestamp": 1791620996,
+     "source": {
+      "type": "git",
+      "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+      "commit": "6e421184f12e282fba659e4d2ced740a647a0043",
+      "path": "plugins/dsh-observability"
+     },
+     "engines": {
+      "dsh": "^0.2.0-rc.1"
+     }
+    }
+   ]
+  },
+  {
+   "name": "dsh-claw-registry",
+   "title": "dsh-agent-registry",
+   "description": "Claw agent registry for DeepSeek Harness: create agents, supply their wa-* agent presets, start and bind Claw sessions. Does not gate tools. Claw Agent 登记：新建 Agent、供给 wa-* 预设、开会话并绑定，不拦截工具。",
+   "author": "xingyingyuzhui",
+   "homepage": "https://github.com/xingyingyuzhui/dsh-agent-registry#readme",
+   "repository": {
+    "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+    "directory": "plugins/dsh-agent-registry"
+   },
+   "metadata": {
+    "category": "dev"
+   },
+   "versions": [
+    {
+     "version": "0.3.0-rc.2",
+     "publishTimestamp": 1791620996,
+     "source": {
+      "type": "git",
+      "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+      "commit": "6e421184f12e282fba659e4d2ced740a647a0043",
+      "path": "plugins/dsh-agent-registry"
+     },
+     "engines": {
+      "dsh": "^0.2.0-rc.1"
+     }
+    }
+   ]
+  },
+  {
+   "name": "dsh-claw-identity",
+   "title": "dsh-agent-identity",
+   "description": "Claw agent identity for DeepSeek Harness: injects each agent's persona files (SOUL / AGENTS / USER …) into its prompt. 把每个 Claw Agent 的人设文件打进它的提示词。",
+   "author": "xingyingyuzhui",
+   "homepage": "https://github.com/xingyingyuzhui/dsh-agent-identity#readme",
+   "repository": {
+    "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+    "directory": "plugins/dsh-agent-identity"
+   },
+   "metadata": {
+    "category": "identity"
+   },
+   "versions": [
+    {
+     "version": "0.3.0-rc.2",
+     "publishTimestamp": 1791620996,
+     "source": {
+      "type": "git",
+      "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+      "commit": "6e421184f12e282fba659e4d2ced740a647a0043",
+      "path": "plugins/dsh-agent-identity"
+     },
+     "engines": {
+      "dsh": "^0.2.0-rc.1"
+     }
+    }
+   ]
+  },
+  {
+   "name": "dsh-claw-policy",
+   "title": "dsh-agent-policy",
+   "description": "Shared Claw/session policy schema, preset bases, MCP init defaults. Does not deny tools. 策略契约：schema / 预设基类 / MCP 初始化默认，不执行拦截。",
+   "author": "xingyingyuzhui",
+   "homepage": "https://github.com/xingyingyuzhui/dsh-agent-policy#readme",
+   "repository": {
+    "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+    "directory": "plugins/dsh-agent-policy"
+   },
+   "metadata": {
+    "category": "security"
+   },
+   "versions": [
+    {
+     "version": "0.3.0-rc.2",
+     "publishTimestamp": 1791620996,
+     "source": {
+      "type": "git",
+      "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+      "commit": "6e421184f12e282fba659e4d2ced740a647a0043",
+      "path": "plugins/dsh-agent-policy"
+     },
+     "engines": {
+      "dsh": "^0.2.0-rc.1"
+     }
+    }
+   ]
+  },
+  {
+   "name": "dsh-claw-permissions",
+   "title": "dsh-session-permissions",
+   "description": "Layered session permissions for DeepSeek Harness. 有效权限 = 官方 ∩ Agent ∩ 本会话；Claw 会话钉官方沙箱（只紧不松）。",
+   "author": "xingyingyuzhui",
+   "homepage": "https://github.com/xingyingyuzhui/dsh-session-permissions#readme",
+   "repository": {
+    "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+    "directory": "plugins/dsh-session-permissions"
+   },
+   "metadata": {
+    "category": "security"
+   },
+   "versions": [
+    {
+     "version": "0.3.0-rc.2",
+     "publishTimestamp": 1791620996,
+     "source": {
+      "type": "git",
+      "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+      "commit": "6e421184f12e282fba659e4d2ced740a647a0043",
+      "path": "plugins/dsh-session-permissions"
+     },
+     "engines": {
+      "dsh": "^0.2.0-rc.1"
+     }
+    }
+   ]
+  },
+  {
+   "name": "dsh-claw-gate",
+   "title": "dsh-agent-gate",
+   "description": "Claw/session permission gate for DeepSeek Harness. 按分层权限拦截工具、走一次性审批，并写审计。官方沙箱由权限插件钉。",
+   "author": "xingyingyuzhui",
+   "homepage": "https://github.com/xingyingyuzhui/dsh-agent-gate#readme",
+   "repository": {
+    "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+    "directory": "plugins/dsh-agent-gate"
+   },
+   "metadata": {
+    "category": "security"
+   },
+   "versions": [
+    {
+     "version": "0.3.0-rc.2",
+     "publishTimestamp": 1791620996,
+     "source": {
+      "type": "git",
+      "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+      "commit": "6e421184f12e282fba659e4d2ced740a647a0043",
+      "path": "plugins/dsh-agent-gate"
+     },
+     "engines": {
+      "dsh": "^0.2.0-rc.1"
+     }
+    }
+   ]
+  },
+  {
+   "name": "dsh-claw-delegate",
+   "title": "dsh-agent-delegate",
+   "description": "Delegation broker for DeepSeek Harness. 真实委派深度、角色衰减、并发预算、写入型 child 的 Git worktree，以及父任务验收后合入 patch。",
+   "author": "xingyingyuzhui",
+   "homepage": "https://github.com/xingyingyuzhui/dsh-agent-delegate#readme",
+   "repository": {
+    "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+    "directory": "plugins/dsh-agent-delegate"
+   },
+   "metadata": {
+    "category": "dev"
+   },
+   "versions": [
+    {
+     "version": "0.3.0-rc.2",
+     "publishTimestamp": 1791620996,
+     "source": {
+      "type": "git",
+      "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+      "commit": "6e421184f12e282fba659e4d2ced740a647a0043",
+      "path": "plugins/dsh-agent-delegate"
+     },
+     "engines": {
+      "dsh": "^0.2.0-rc.1"
+     }
+    }
+   ]
+  },
+  {
+   "name": "dsh-claw-memory",
+   "title": "dsh-agent-memory",
+   "description": "Claw persistent memory: vault, daily notes, review, flush. 完整留存：金库、日记、回顾、压缩前冲洗。",
+   "author": "xingyingyuzhui",
+   "homepage": "https://github.com/xingyingyuzhui/dsh-agent-memory#readme",
+   "repository": {
+    "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+    "directory": "plugins/dsh-agent-memory"
+   },
+   "metadata": {
+    "category": "memory"
+   },
+   "versions": [
+    {
+     "version": "0.3.0-rc.2",
+     "publishTimestamp": 1791620996,
+     "source": {
+      "type": "git",
+      "url": "https://github.com/Gray-Harness/dsh-claw-governance-bundle",
+      "commit": "6e421184f12e282fba659e4d2ced740a647a0043",
+      "path": "plugins/dsh-agent-memory"
+     },
+     "engines": {
+      "dsh": "^0.2.0-rc.1"
+     }
+    }
+   ]
+  }
+ ]
+}
