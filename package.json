@@ -1,0 +1,51 @@
+{
+ "name": "dsh-claw-governance-bundle",
+ "version": "0.3.0-rc.2",
+ "description": "Claw governance suite for DeepSeek Harness as one meta bundle — install this single package to get all 9 components. Fork of xingyingyuzhui/dsh-claw-suite v0.3.0-rc.2 (MIT), redistributed as a marketplace/git-installable bundle with members pinned by commit. 一键安装版 Claw 治理套件（fork 自上游，成员按 commit 钉死）。",
+ "keywords": [
+  "dsh",
+  "dsh-plugin",
+  "deepseek-harness",
+  "claw",
+  "governance"
+ ],
+ "license": "MIT",
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git"
+ },
+ "type": "module",
+ "main": "./host.js",
+ "exports": {
+  ".": "./host.js",
+  "./package.json": "./package.json"
+ },
+ "files": [
+  "host.js",
+  "cordis.patch.yml",
+  "README.md",
+  "LICENSE"
+ ],
+ "engines": {
+  "node": ">=20"
+ },
+ "dsh": {
+  "bundle": {
+   "patch": "./cordis.patch.yml"
+  }
+ },
+ "peerDependencies": {
+  "@deepseek-ai/dsh": "^0.2.0-rc.1"
+ },
+ "dependencies": {
+  "dsh-claw-policy": "0.3.0-rc.2",
+  "dsh-claw-permissions": "0.3.0-rc.2",
+  "dsh-claw-observability": "0.3.0-rc.2",
+  "dsh-claw-identity": "0.3.0-rc.2",
+  "dsh-claw-memory": "0.3.0-rc.2",
+  "dsh-claw-gate": "0.3.0-rc.2",
+  "dsh-claw-delegate": "0.3.0-rc.2",
+  "dsh-claw-registry": "0.3.0-rc.2",
+  "dsh-claw-core": "0.3.0-rc.2"
+ }
+}
