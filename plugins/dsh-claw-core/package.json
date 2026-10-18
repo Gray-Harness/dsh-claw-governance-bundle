@@ -1,45 +1,45 @@
 {
-  "name": "dsh-claw-core",
-  "version": "0.3.0-rc.2",
-  "description": "Shared core library for dsh-claw-* plugins (not a DSH plugin row). Claw 套件共享核心库，不是插件行。",
-  "keywords": [
-    "dsh",
-    "dsh-plugin",
-    "deepseek-harness",
-    "claw",
-    "core"
-  ],
-  "license": "MIT",
-  "type": "module",
-  "main": "./index.mjs",
-  "exports": {
-    ".": "./index.mjs",
-    "./live-agents": "./live-agents.mjs",
-    "./session-classifier": "./session-classifier.mjs",
-    "./path-containment": "./path-containment.mjs",
-    "./errors": "./errors.mjs",
-    "./http": "./http.mjs",
-    "./version": "./version.mjs",
-    "./package.json": "./package.json"
-  },
-  "files": [
-    "index.mjs",
-    "live-agents.mjs",
-    "session-classifier.mjs",
-    "path-containment.mjs",
-    "errors.mjs",
-    "http.mjs",
-    "version.mjs",
-    "README.md",
-    "LICENSE"
-  ],
-  "engines": {
-    "node": ">=20"
-  },
-  "scripts": {
-    "test": "node --test test/*.test.mjs"
-  },
-  "peerDependencies": {
-    "@deepseek-ai/dsh": "^0.2.0-rc.1"
-  }
+ "name": "dsh-claw-core",
+ "version": "0.3.0-rc.2",
+ "description": "Shared core library for dsh-claw-* plugins (not a DSH plugin row). Claw 套件共享核心库，不是插件行。",
+ "keywords": [
+  "dsh",
+  "dsh-plugin",
+  "deepseek-harness",
+  "claw",
+  "core"
+ ],
+ "license": "MIT",
+ "type": "module",
+ "main": "./index.mjs",
+ "exports": {
+  ".": "./index.mjs",
+  "./live-agents": "./live-agents.mjs",
+  "./session-classifier": "./session-classifier.mjs",
+  "./path-containment": "./path-containment.mjs",
+  "./errors": "./errors.mjs",
+  "./http": "./http.mjs",
+  "./version": "./version.mjs",
+  "./package.json": "./package.json"
+ },
+ "files": [
+  "index.mjs",
+  "live-agents.mjs",
+  "session-classifier.mjs",
+  "path-containment.mjs",
+  "errors.mjs",
+  "http.mjs",
+  "version.mjs",
+  "README.md",
+  "LICENSE"
+ ],
+ "engines": {
+  "node": ">=20"
+ },
+ "scripts": {
+  "test": "node --test test/*.test.mjs"
+ },
+ "peerDependencies": {
+  "@deepseek-ai/dsh": "^0.2.0-rc.1"
+ }
 }

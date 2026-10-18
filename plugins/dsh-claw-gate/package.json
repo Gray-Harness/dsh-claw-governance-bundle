@@ -1,59 +1,59 @@
 {
-  "name": "dsh-claw-gate",
-  "version": "0.3.0-rc.2",
-  "description": "Claw/session permission gate for DeepSeek Harness. 按分层权限拦截工具、走一次性审批，并写审计。官方沙箱由权限插件钉。",
-  "keywords": [
-    "dsh",
-    "dsh-plugin",
-    "deepseek-harness",
-    "permissions",
-    "gate"
-  ],
-  "license": "MIT",
-  "type": "module",
-  "main": "./host.js",
-  "exports": {
-    ".": "./host.js",
-    "./client": "./client.js",
-    "./package.json": "./package.json"
+ "name": "dsh-claw-gate",
+ "version": "0.3.0-rc.2",
+ "description": "Claw/session permission gate for DeepSeek Harness. 按分层权限拦截工具、走一次性审批，并写审计。官方沙箱由权限插件钉。",
+ "keywords": [
+  "dsh",
+  "dsh-plugin",
+  "deepseek-harness",
+  "permissions",
+  "gate"
+ ],
+ "license": "MIT",
+ "type": "module",
+ "main": "./host.js",
+ "exports": {
+  ".": "./host.js",
+  "./client": "./client.js",
+  "./package.json": "./package.json"
+ },
+ "files": [
+  "host.js",
+  "client.js",
+  "gate-audit.mjs",
+  "gate-filter.mjs",
+  "gate-skills.mjs",
+  "gate-mcp.mjs",
+  "gate-i18n.mjs",
+  "gate-styles.mjs",
+  "gate-page.mjs",
+  "gate-runtime.mjs",
+  "cordis.patch.yml",
+  "README.md",
+  "LICENSE"
+ ],
+ "engines": {
+  "node": ">=20"
+ },
+ "scripts": {
+  "build": "node scripts/build-client.mjs",
+  "build:check": "node scripts/build-client.mjs --check",
+  "test": "npm run build:check && node --test test/*.test.mjs"
+ },
+ "dependencies": {
+  "dsh-claw-core": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-core",
+  "dsh-claw-permissions": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-permissions",
+  "dsh-claw-observability": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-observability"
+ },
+ "peerDependencies": {
+  "@deepseek-ai/dsh": "^0.2.0-rc.1"
+ },
+ "dsh": {
+  "bundle": {
+   "patch": "./cordis.patch.yml"
   },
-  "files": [
-    "host.js",
-    "client.js",
-    "gate-audit.mjs",
-    "gate-filter.mjs",
-    "gate-skills.mjs",
-    "gate-mcp.mjs",
-    "gate-i18n.mjs",
-    "gate-styles.mjs",
-    "gate-page.mjs",
-    "gate-runtime.mjs",
-    "cordis.patch.yml",
-    "README.md",
-    "LICENSE"
-  ],
-  "engines": {
-    "node": ">=20"
-  },
-  "scripts": {
-    "build": "node scripts/build-client.mjs",
-    "build:check": "node scripts/build-client.mjs --check",
-    "test": "npm run build:check && node --test test/*.test.mjs"
-  },
-  "dependencies": {
-    "dsh-claw-core": "0.3.0-rc.2",
-    "dsh-claw-permissions": "0.3.0-rc.2",
-    "dsh-claw-observability": "0.3.0-rc.2"
-  },
-  "peerDependencies": {
-    "@deepseek-ai/dsh": "^0.2.0-rc.1"
-  },
-  "dsh": {
-    "bundle": {
-      "patch": "./cordis.patch.yml"
-    },
-    "client": {
-      "platform": "web"
-    }
+  "client": {
+   "platform": "web"
   }
+ }
 }

@@ -38,14 +38,14 @@
   "@deepseek-ai/dsh": "^0.2.0-rc.1"
  },
  "dependencies": {
-  "dsh-claw-policy": "0.3.0-rc.2",
-  "dsh-claw-permissions": "0.3.0-rc.2",
-  "dsh-claw-observability": "0.3.0-rc.2",
-  "dsh-claw-identity": "0.3.0-rc.2",
-  "dsh-claw-memory": "0.3.0-rc.2",
-  "dsh-claw-gate": "0.3.0-rc.2",
-  "dsh-claw-delegate": "0.3.0-rc.2",
-  "dsh-claw-registry": "0.3.0-rc.2",
-  "dsh-claw-core": "0.3.0-rc.2"
+  "dsh-claw-policy": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-policy",
+  "dsh-claw-permissions": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-permissions",
+  "dsh-claw-observability": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-observability",
+  "dsh-claw-identity": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-identity",
+  "dsh-claw-memory": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-memory",
+  "dsh-claw-gate": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-gate",
+  "dsh-claw-delegate": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-delegate",
+  "dsh-claw-registry": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-registry",
+  "dsh-claw-core": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-core"
  }
 }
