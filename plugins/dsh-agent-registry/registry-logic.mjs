@@ -1,0 +1,126 @@
+// Join official workspaces with durable bindings. No permission changes.
+
+import { realpathSync } from 'node:fs'
+import { join } from 'node:path'
+import { computeClaims, projectAgent, refreshBinding, setAgentModel, setAgentPolicy, setAgentSkills, setStatus } from './registry-store.mjs'
+import { normalizePathKey } from './registry-view.mjs'
+
+export function sameRoot(a, b) {
+  if (!a || !b) return false
+  if (a === b) return true
+  try {
+    if (realpathSync(String(a)) === realpathSync(String(b))) return true
+  } catch { /* missing path */ }
+  return normalizePathKey(a) === normalizePathKey(b)
+}
+
+export function workspaceIndex(workspaces) {
+  const byId = new Map()
+  for (const workspace of workspaces || []) {
+    if (!workspace) continue
+    const id = workspace.id != null ? workspace.id : workspace.workspaceId
+    if (id != null) byId.set(String(id), workspace)
+  }
+  return byId
+}
+
+export function syncBindings(registry, workspaces, now) {
+  let next = registry
+  let changed = false
+  const created = []
+  for (const workspace of workspaces || []) {
+    if (workspace == null || workspace.id == null) continue
+    const result = refreshBinding(next, workspace, now)
+    next = result.registry
+    if (result.changed) changed = true
+  }
+  return { registry: next, changed, created }
+}
+
+export function identityPaths(dshHome, agentId, agent) {
+  const root = agent && agent.canonicalRoot
+    ? String(agent.canonicalRoot)
+    : join(dshHome, 'workspace-agents', agentId)
+  return {
+    root,
+    agents: join(root, 'AGENTS.md'),
+    soul: join(root, 'SOUL.md'),
+    tools: join(root, 'TOOLS.md'),
+    identity: join(root, 'IDENTITY.md'),
+    user: join(root, 'USER.md'),
+    heartbeat: join(root, 'HEARTBEAT.md'),
+    memory: join(root, 'MEMORY.md'),
+    policy: join(root, 'policy.json'),
+  }
+}
+
+export function listProjected(registry, workspaces, dshHome) {
+  const byId = workspaceIndex(workspaces)
+  const rows = Object.values(registry.agents).map((agent) => {
+    const projected = projectAgent(agent, byId.get(String(agent.workspaceId)), registry.sessionBindings)
+    if (dshHome) projected.files = identityPaths(dshHome, agent.agentId, projected)
+    return projected
+  })
+  rows.sort((a, b) => {
+    if (a.status !== b.status) return a.status === 'active' ? -1 : 1
+    return String(a.title || a.canonicalRoot).localeCompare(String(b.title || b.canonicalRoot))
+  })
+  const claims = computeClaims(registry, workspaces)
+  return {
+    revision: Number(registry.revision) || 1,
+    main: { ...registry.main, declared: { preset: 'main', enforced: false } },
+    agents: rows,
+    bindings: Object.values(registry.sessionBindings || {}),
+    pending: Object.values(registry.repairQueue || {}),
+    claims,
+  }
+}
+
+export function explainAgent(registry, workspaces, query) {
+  const byId = workspaceIndex(workspaces)
+  let agent = null
+  if (query && query.agentId && registry.agents[query.agentId]) {
+    agent = registry.agents[query.agentId]
+  } else if (query && query.workspaceId) {
+    agent = Object.values(registry.agents).find((row) => String(row.workspaceId) === String(query.workspaceId)) || null
+  } else if (query && query.path) {
+    agent = Object.values(registry.agents).find((row) => row.canonicalRoot === query.path || sameRoot(row.canonicalRoot, query.path)) || null
+  }
+  if (!agent) return null
+  return projectAgent(agent, byId.get(String(agent.workspaceId)), registry.sessionBindings)
+}
+
+export function archiveAgent(registry, agentId, now) {
+  return setStatus(registry, agentId, 'archived', now)
+}
+
+export function renameAgent(registry, agentId, title, now) {
+  const current = registry.agents[agentId]
+  if (!current) return { registry, agent: null }
+  const nextTitle = String(title || '').trim()
+  if (!nextTitle) return { registry, agent: null }
+  if (nextTitle === current.title) return { registry, agent: current, changed: false, oldTitle: current.title }
+  const agent = { ...current, title: nextTitle, updatedAt: now || new Date().toISOString() }
+  return {
+    registry: { ...registry, agents: { ...registry.agents, [agentId]: agent } },
+    agent,
+    changed: true,
+    oldTitle: current.title,
+  }
+}
+
+export function restoreAgent(registry, agentId, now) {
+  return setStatus(registry, agentId, 'active', now)
+}
+
+export function updateAgentPolicy(registry, agentId, policy, now) {
+  return setAgentPolicy(registry, agentId, policy, now)
+}
+
+export function updateAgentSkills(registry, agentId, deny, now) {
+  return setAgentSkills(registry, agentId, deny, now)
+}
+
+export function updateAgentModel(registry, agentId, selection, now) {
+  return setAgentModel(registry, agentId, selection, now)
+}

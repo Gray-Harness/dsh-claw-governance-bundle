@@ -1,0 +1,4 @@
+# Shared diagnostics library. Empty apply; other suite plugins import sibling files.
+- insert:
+    - id: dsh-claw-observability
+      name: dsh-claw-observability

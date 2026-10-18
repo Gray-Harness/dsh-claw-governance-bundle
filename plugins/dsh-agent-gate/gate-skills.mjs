@@ -1,0 +1,41 @@
+import { resolveLayersSync } from 'dsh-claw-permissions/layers'
+
+export function lookupOf(options) {
+  const value = options && typeof options === 'object' ? options : {}
+  const session = value.scope && value.scope.session
+  const header = session && session.header
+  const cwd = typeof value.cwd === 'string' && value.cwd
+    ? value.cwd
+    : (header && header.cwd) || ''
+  const preset = header
+    ? header.agentPreset
+    : undefined
+  return {
+    cwd,
+    preset,
+    sessionId: session && session.id,
+    events: session && session.events,
+  }
+}
+
+export function deniedSkillNames(home, options) {
+  const layers = resolveLayersSync(home, lookupOf(options))
+  if (!layers || !layers.claw) return []
+  const deny = layers.effective && layers.effective.skills && layers.effective.skills.deny
+  return Array.isArray(deny) ? deny.filter((name) => typeof name === 'string' && name) : []
+}
+
+export function filterSkillRows(rows, denied) {
+  const list = Array.isArray(rows) ? rows : []
+  if (!denied || denied.length === 0) return list.slice()
+  const blocked = new Set(denied)
+  return list.filter((row) => row && !blocked.has(row.name))
+}
+
+export function filterSnapshot(snapshot, denied) {
+  const value = snapshot && typeof snapshot === 'object' ? snapshot : { skills: [], complete: true }
+  return {
+    ...value,
+    skills: filterSkillRows(value.skills, denied),
+  }
+}

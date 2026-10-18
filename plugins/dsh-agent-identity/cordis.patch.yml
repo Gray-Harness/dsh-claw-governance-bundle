@@ -1,0 +1,4 @@
+# dsh bundle layer: Claw agent identity files → system prompt.
+- insert:
+    - id: dsh-claw-identity
+      name: dsh-claw-identity
