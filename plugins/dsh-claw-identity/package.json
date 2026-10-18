@@ -38,7 +38,7 @@
   }
  },
  "dependencies": {
-  "dsh-claw-core": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-core"
+  "dsh-claw-core": "file:../dsh-claw-core"
  },
  "peerDependencies": {
   "@deepseek-ai/dsh": "^0.2.0-rc.1"

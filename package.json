@@ -24,7 +24,8 @@
   "host.js",
   "cordis.patch.yml",
   "README.md",
-  "LICENSE"
+  "LICENSE",
+  "plugins"
  ],
  "engines": {
   "node": ">=20"
@@ -38,14 +39,14 @@
   "@deepseek-ai/dsh": "^0.2.0-rc.1"
  },
  "dependencies": {
-  "dsh-claw-policy": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-policy",
-  "dsh-claw-permissions": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-permissions",
-  "dsh-claw-observability": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-observability",
-  "dsh-claw-identity": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-identity",
-  "dsh-claw-memory": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-memory",
-  "dsh-claw-gate": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-gate",
-  "dsh-claw-delegate": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-delegate",
-  "dsh-claw-registry": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-registry",
-  "dsh-claw-core": "git+https://github.com/Gray-Harness/dsh-claw-governance-bundle.git#9c115ccf6e3ae30b6d92cf171204fa4adeb4779b&path:/plugins/dsh-claw-core"
+  "dsh-claw-policy": "file:./plugins/dsh-claw-policy",
+  "dsh-claw-permissions": "file:./plugins/dsh-claw-permissions",
+  "dsh-claw-observability": "file:./plugins/dsh-claw-observability",
+  "dsh-claw-identity": "file:./plugins/dsh-claw-identity",
+  "dsh-claw-memory": "file:./plugins/dsh-claw-memory",
+  "dsh-claw-gate": "file:./plugins/dsh-claw-gate",
+  "dsh-claw-delegate": "file:./plugins/dsh-claw-delegate",
+  "dsh-claw-registry": "file:./plugins/dsh-claw-registry",
+  "dsh-claw-core": "file:./plugins/dsh-claw-core"
  }
 }
